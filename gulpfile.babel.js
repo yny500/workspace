@@ -14,29 +14,29 @@ const routes = {
   html: {
     watch: "src/**/*.html", // src 폴더 안에 모든 파일을 지켜봄
     src: "src/*.html", // 해당 경로의 html로 끝나는 파일들(/**/은 폴더 내부까지 포함한단 의미)
-    dest: "build", // 뿌려줄 경로(폴더, 목적지)
+    dest: "dist", // 뿌려줄 경로(폴더, 목적지)
   },
   img: {
     src: "src/img/*", // src/img 안의 모든 파일(확장자 지정 ex- src/img/*.png)
-    dest: "build/img",
+    dest: "dist/img",
   },
   scss: {
     watch: "src/scss/**/*.scss",
     src: "src/scss/style.scss",
-    dest: "build/css",
+    dest: "dist/css",
   },
   js: {
     watch: "src/js/**/*.js",
     src: "src/js/main.js",
-    dest: "build/js",
+    dest: "dist/js",
   },
 };
 
-const clean = () => del(["build"]); // 시리즈 추가, 괄호 안에 확장자나 폴더 이름 적어주기
+const clean = () => del(["dist"]); // 시리즈 추가, 괄호 안에 확장자나 폴더 이름 적어주기
 
 // 웹 서버 설정
 const webserver = () =>
-  gulp.src("build").pipe(ws({ livereload: true, open: true })); // 서버에서 보여주고 싶은 폴더 지정
+  gulp.src("dist").pipe(ws({ livereload: true, open: true })); // 서버에서 보여주고 싶은 폴더 지정
 
 const html = () =>
   gulp
