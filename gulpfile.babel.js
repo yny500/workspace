@@ -20,6 +20,10 @@ const routes = {
     src: "src/img/*", // src/img 안의 모든 파일(확장자 지정 ex- src/img/*.png)
     dest: "dist/img",
   },
+  video: {
+    src: "src/video/*",
+    dest: "dist/video",
+  },
   scss: {
     watch: "src/scss/**/*.scss",
     src: "src/scss/style.scss",
@@ -84,7 +88,10 @@ const watch = () => {
 const img = () =>
   gulp.src(routes.img.src).pipe(image()).pipe(gulp.dest(routes.img.dest));
 
-const prepare = gulp.series([clean, img]); // dev 준비 과정에서 발생
+const video = () =>
+  gulp.src(routes.video.src).pipe(image()).pipe(gulp.dest(routes.video.dest));
+
+const prepare = gulp.series([clean, img, video]); // dev 준비 과정에서 발생
 // *ERR_REQUIRE_ESM 오류 발생시
 // gulp-image 6.2.1버전으로 낮춰주면 됨
 // -> npm install gulp-image@6.2.1 --save-dev

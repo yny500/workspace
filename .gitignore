@@ -3,5 +3,5 @@
 
 # next.js build output
 .next
-build/
+dist/
 node_modules
