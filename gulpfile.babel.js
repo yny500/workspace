@@ -5,7 +5,6 @@ import image from "gulp-image";
 import dartSass from "sass";
 import gulpSass from "gulp-sass";
 import fileinclude from "gulp-file-include";
-import autoprefixer from "gulp-autoprefixer"; // 구형 브라우저 호환
 import miniCSS from "gulp-csso"; // css 압축
 import bro from "gulp-bro"; //  browserify의 신 버전(import, export와 같은 문법은 브라우저가 해석할 수 없기에 해석할 수 있도록 도와줌)
 import babelify from "babelify"; // babel 사용
@@ -58,11 +57,6 @@ const styles = () =>
   gulp
     .src(routes.scss.src)
     .pipe(sass().on("error", sass.logError)) // scss용 에러 설정
-    .pipe(
-      autoprefixer({
-        browsers: ["last 2 versions"], // 구형 브라우저 호환 버전 설정
-      })
-    )
     .pipe(miniCSS())
     .pipe(gulp.dest(routes.scss.dest));
 
