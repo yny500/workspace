@@ -1,2 +1,2 @@
-const loader = new Loader();
-loader.init();
+// const loader = new Loader();
+// loader.init();
